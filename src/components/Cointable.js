@@ -5,8 +5,14 @@ import axios from 'axios';
 import { Container, createTheme, LinearProgress, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, ThemeProvider, Typography } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from "@material-ui/core";
-import { numberWithCommas } from './Carousel';
 import Pagination from "@material-ui/lab/Pagination";
+
+export function numberWithCommas(x) {
+    if(!x){
+        return "N/A";
+    }
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 
 const useStyles = makeStyles({
@@ -32,8 +38,6 @@ function Cointable() {
     const [page, setPage] = useState(1);
 
     const { currency, symbol } = CryptoState();
-    // console.log(currency);
-
 
     const classes = useStyles();
     const history = useHistory();

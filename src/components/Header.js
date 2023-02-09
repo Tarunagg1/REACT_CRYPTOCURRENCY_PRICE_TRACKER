@@ -17,11 +17,9 @@ function Header() {
   const classes = usestyles();
 
   const history = useHistory();
-  // console.log(CryptoState());
   const { currency, setCurrency } = CryptoState();
 
 
-  // console.log(currency);
   const handleChange = (e) => {
     setCurrency(e.target.value);
   }
